@@ -1,55 +1,49 @@
+import { Button, H1, Paragraph, Sheet, useToastController, XStack, YStack } from '@my/ui'
+import { NavButton } from '@my/ui'
 import {
-  Anchor,
-  Button,
-  H1,
-  Paragraph,
-  Separator,
-  Sheet,
-  useToastController,
-  XStack,
-  YStack,
-} from '@my/ui'
-import { ChevronDown, ChevronUp } from '@tamagui/lucide-icons'
+  ChevronDown,
+  ListStart,
+  FileHeart,
+  ChevronUp,
+  Home,
+  BarChart2,
+} from '@tamagui/lucide-icons'
 import React, { useState } from 'react'
-import { useLink } from 'solito/link'
 
 export function HomeScreen() {
-  const linkProps = useLink({
-    href: '/user/nate',
-  })
-
   return (
     <YStack f={1} jc="center" ai="center" p="$4" space>
       <YStack space="$4" maw={600}>
-        <H1 ta="center">Welcome to Tamagui.</H1>
-        <Paragraph ta="center">
-          Here's a basic starter to show navigating from one screen to another. This screen uses the
-          same code on Next.js and React Native.
+        <H1 ta="center">Tamagui Group Issue</H1>
+        <Paragraph>
+          Open 'NavButton' from the ui package and uncomment the event handler props to see the
+          behavior below change:
         </Paragraph>
-
-        <Separator />
-        <Paragraph ta="center">
-          Made by{' '}
-          <Anchor color="$color12" href="https://twitter.com/natebirdman" target="_blank">
-            @natebirdman
-          </Anchor>
-          ,{' '}
-          <Anchor
-            color="$color12"
-            href="https://github.com/tamagui/tamagui"
-            target="_blank"
-            rel="noreferrer"
-          >
-            give it a ⭐️
-          </Anchor>
-        </Paragraph>
+        <NavButton href="/">
+          <NavButton.Icon>
+            <Home />
+          </NavButton.Icon>
+          <NavButton.Text>Home</NavButton.Text>
+        </NavButton>
+        <NavButton href="/foo">
+          <NavButton.Icon>
+            <ListStart />
+          </NavButton.Icon>
+          <NavButton.Text>Foo</NavButton.Text>
+        </NavButton>
+        <NavButton href="/bar">
+          <NavButton.Icon>
+            <FileHeart />
+          </NavButton.Icon>
+          <NavButton.Text>Bar</NavButton.Text>
+        </NavButton>
+        <NavButton href="/baz">
+          <NavButton.Icon>
+            <BarChart2 />
+          </NavButton.Icon>
+          <NavButton.Text>Baz</NavButton.Text>
+        </NavButton>
       </YStack>
-
-      <XStack>
-        <Button {...linkProps}>Link to user</Button>
-      </XStack>
-
-      <SheetDemo />
     </YStack>
   )
 }
